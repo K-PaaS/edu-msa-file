@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-msa-comment
+spec:
+  selector:
+    matchLabels:
+      app: mysql-comment
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql-comment
+    spec:
+      containers:
+      - image: mysql:5.6
+        name: mysql-comment
+        env:          
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        ports:
+        - containerPort: 3306
+          name: mysql-comment       
+      volumes:
+      - name: mysql-comment       
+      nodeSelector:
+        kubernetes.io/hostname: playpark-caas-worker-6
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-msa-comment
+spec:
+  type: NodePort
+  ports:
+  - port: 3306
+    protocol: TCP
+    targetPort: 3306
+    nodePort: 30603
+  selector:
+    app: mysql-comment
+

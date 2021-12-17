@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edu-msa-comment
+  labels:
+    app: comment-msa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: comment-msa
+  template:
+    metadata:
+      labels:
+        app: comment-msa
+    spec:
+      containers:
+      - name: comment-msa
+        image: 45.248.73.57:5001/edu-msa-03/edu-msa-comment:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 28083    
+      imagePullSecrets:
+         - name: edu-msa-secret-03  
+      nodeSelector:
+        kubernetes.io/hostname: playpark-caas-worker-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: edu-msa-comment
+  labels:
+    app: comment-msa  
+spec:
+  ports:
+  - nodePort: 30303
+    port: 28083
+    protocol: TCP
+    targetPort: 28083
+  selector:
+    app: comment-msa
+  type: NodePort
+

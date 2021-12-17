@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-msa-user
+spec:
+  selector:
+    matchLabels:
+      app: mysql-user
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql-user
+    spec:
+      containers:
+      - image: mysql:5.6
+        name: mysql-user
+        env:          
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        ports:
+        - containerPort: 3306
+          name: mysql-user       
+      volumes:
+      - name: mysql-user
+      nodeSelector:
+        kubernetes.io/hostname: playpark-caas-worker-2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-msa-user
+spec:
+  type: NodePort
+  ports:
+  - port: 3306
+    protocol: TCP
+    targetPort: 3306
+    nodePort: 30703
+  selector:
+    app: mysql-user
+

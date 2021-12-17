@@ -1,0 +1,9 @@
+FROM tomcat:9-jre8-alpine
+WORKDIR /usr/local/tomcat
+COPY server.xml ./conf
+RUN rm -rf ./webapps/*
+ARG JAR_FILE=*.war
+COPY ${JAR_FILE} ./webapps/edu-msa-user-1.0.0.war
+
+EXPOSE 28084
+

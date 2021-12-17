@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edu-msa-user
+  labels:
+    app: user-msa  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-msa
+  template:
+    metadata:
+      labels:
+        app: user-msa
+    spec:
+      containers:
+      - name: user-msa
+        image: 45.248.73.57:5001/edu-msa-03/edu-msa-user:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 28084      
+      imagePullSecrets:
+         - name: edu-msa-secret-03     
+      nodeSelector:
+        kubernetes.io/hostname: playpark-caas-worker-3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: edu-msa-user
+  labels:
+    app: user-msa  
+spec:
+  ports:
+  - nodePort: 30403
+    port: 28084
+    protocol: TCP
+    targetPort: 28084
+  selector:
+    app: user-msa
+  type: NodePort
