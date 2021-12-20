@@ -23,9 +23,7 @@ spec:
         - containerPort: 3306
           name: mysql-comment       
       volumes:
-      - name: mysql-comment       
-      nodeSelector:
-        kubernetes.io/hostname: playpark-caas-worker-6
+      - name: mysql-comment     
 ---
 apiVersion: v1
 kind: Service
@@ -37,7 +35,7 @@ spec:
   - port: 3306
     protocol: TCP
     targetPort: 3306
-    nodePort: 30603
+    nodePort: ${MYSQL_MSA_COMMENT}
   selector:
     app: mysql-comment
 

@@ -16,14 +16,12 @@ spec:
     spec:
       containers:
       - name: ui-msa
-        image: 45.248.73.57:5001/edu-msa-03/edu-msa-ui:latest
+        image: ${IMAGE_REGISTRY_URL}:5001/${DIRECTORY_NAME}/${IMAGE_NAME}:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 28080     
       imagePullSecrets:
-         - name: edu-msa-secret-03  
-      nodeSelector:
-        kubernetes.io/hostname: playpark-caas-worker-3
+         - name: edu-msa-secret
 ---
 apiVersion: v1
 kind: Service
@@ -33,7 +31,7 @@ metadata:
     app: ui-msa  
 spec:
   ports:
-  - nodePort: 30003
+  - nodePort: ${EDU_MSA_UI}
     port: 28080
     protocol: TCP
     targetPort: 28080

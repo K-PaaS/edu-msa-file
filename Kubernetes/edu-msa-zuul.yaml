@@ -16,21 +16,19 @@ spec:
     spec:
       containers:
       - name: zuul-msa
-        image: 45.248.73.57:5001/edu-msa-03/edu-msa-zuul:latest
+        image: ${IMAGE_REGISTRY_URL}:5001/${DIRECTORY_NAME}/${IMAGE_NAME}:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 28081      
         env:             
         - name: BOARD_MSA_URL
-          value: "edu-msa-board.paas-b9dd057f-edfc-44c4-bf37-c57154f85e8d-caas.svc.cluster.local:28082"
+          value: "edu-msa-board.${NAMESPACE}.svc.cluster.local:28082"
         - name: COMMENT_MSA_URL
-          value: "edu-msa-comment.paas-b9dd057f-edfc-44c4-bf37-c57154f85e8d-caas.svc.cluster.local:28083"
+          value: "edu-msa-comment.${NAMESPACE}.svc.cluster.local:28083"
         - name: USER_MSA_URL
-          value: "edu-msa-user.paas-b9dd057f-edfc-44c4-bf37-c57154f85e8d-caasZ.svc.cluster.local:28084"          
+          value: "edu-msa-user.${NAMESPACE}.svc.cluster.local:28084"          
       imagePullSecrets:
-         - name: edu-msa-secret-03  
-      nodeSelector:
-        kubernetes.io/hostname: playpark-caas-worker-1
+         - name: edu-msa-secret       
 ---
 apiVersion: v1
 kind: Service
@@ -40,7 +38,7 @@ metadata:
     app: zuul-msa  
 spec:
   ports:
-  - nodePort: 30103
+  - nodePort: ${EDU_MSA_ZUUL}
     port: 28081
     protocol: TCP
     targetPort: 28081

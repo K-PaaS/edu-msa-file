@@ -58,7 +58,7 @@ metadata:
     app: redis
 spec:
   ports:
-  - nodePort: 30803
+  - nodePort: ${REDIS_MSA_UI}
     port: 6379
     protocol: TCP
     targetPort: 6379

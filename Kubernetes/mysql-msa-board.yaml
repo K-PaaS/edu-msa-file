@@ -23,9 +23,7 @@ spec:
         - containerPort: 3306
           name: mysql-board       
       volumes:
-      - name: mysql-board
-      nodeSelector:
-        kubernetes.io/hostname: playpark-caas-worker-1
+      - name: mysql-board     
 ---
 apiVersion: v1
 kind: Service
@@ -37,7 +35,7 @@ spec:
   - port: 3306
     protocol: TCP
     targetPort: 3306
-    nodePort: 30503
+    nodePort: ${MYSQL_MSA_BOARD}
   selector:
     app: mysql-board
 

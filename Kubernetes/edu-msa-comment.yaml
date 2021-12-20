@@ -16,14 +16,12 @@ spec:
     spec:
       containers:
       - name: comment-msa
-        image: 45.248.73.57:5001/edu-msa-03/edu-msa-comment:latest
+        image: ${IMAGE_REGISTRY_URL}:5001/${DIRECTORY_NAME}/${IMAGE_NAME}:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 28083    
       imagePullSecrets:
-         - name: edu-msa-secret-03  
-      nodeSelector:
-        kubernetes.io/hostname: playpark-caas-worker-1
+         - name: edu-msa-secret 
 ---
 apiVersion: v1
 kind: Service
@@ -33,7 +31,7 @@ metadata:
     app: comment-msa  
 spec:
   ports:
-  - nodePort: 30303
+  - nodePort: ${EDU_MSA_COMMENT}
     port: 28083
     protocol: TCP
     targetPort: 28083
