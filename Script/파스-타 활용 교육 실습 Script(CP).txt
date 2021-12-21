@@ -280,7 +280,7 @@ dbms.name=msa_board
 ================== api.properties ==================
 - war 파일 생성
 	-> "edu-msa-board 프로젝트 선택" > "Run As" > "Maven build" 선택
-	-> Edit Configuration 창에서 Golas에 "clean install" 입력 후 Run 실행
+	-> Edit Configuration 창에서 Goals에 "clean install" 입력 후 "Run" 실행
 	-> "edu-msa-board/target" 위치에 edu-msa-board-1.0.0.war 파일 확인	
 
 
@@ -304,7 +304,7 @@ dbms.name=msa_comment
 ================== api.properties ==================
 - war 파일 생성
 	-> "edu-msa-comment 프로젝트 선택" > "Run As" > "Maven build" 선택
-	-> Edit Configuration 창에서 Golas에 "clean install" 입력 후 Run 실행
+	-> Edit Configuration 창에서 Goals에 "clean install" 입력 후 "Run" 실행
 	-> "edu-msa-comment/target" 위치에 edu-msa-comment-1.0.0.war 파일 확인	
 
 
@@ -328,7 +328,7 @@ dbms.name=msa_user
 ================== api.properties ==================
 - war 파일 생성
 	-> "edu-msa-user 프로젝트 선택" > "Run As" > "Maven build" 선택
-	-> Edit Configuration 창에서 Golas에 "clean install" 입력 후 Run 실행
+	-> Edit Configuration 창에서 Goals에 "clean install" 입력 후 "Run" 실행
 	-> "edu-msa-user/target" 위치에 edu-msa-user-1.0.0.war 파일 확인	
 
 
@@ -350,7 +350,7 @@ redis.password=password
 ================== api.properties ==================
 - war 파일 생성
 	-> "edu-msa-ui 프로젝트 선택" > "Run As" > "Maven build" 선택
-	-> Edit Configuration 창에서 Golas에 "clean install" 입력 후 Run 실행
+	-> Edit Configuration 창에서 Goals에 "clean install" 입력 후 "Run" 실행
 	-> "edu-msa-ui/target" 위치에 edu-msa-ui-1.0.0.war 파일 확인	
 
 
@@ -360,7 +360,7 @@ redis.password=password
 	
 - war 파일 생성
 	-> "edu-msa-zuul 프로젝트 선택" > "Run As" > "Maven build" 선택
-	-> Edit Configuration 창에서 Golas에 "clean install" 입력 후 Run 실행
+	-> Edit Configuration 창에서 Golas에 "clean install" 입력 후 "Run" 실행
 	-> "edu-msa-zuul/target" 위치에 edu-msa-zuul-1.0.0.war 파일 확인	
 
 
@@ -487,7 +487,7 @@ $ docker tag edu-msa-zuul 45.248.73.57:5001/edu-msa-01/edu-msa-zuul
 $ docker push 45.248.73.57:5001/edu-msa-01/edu-msa-zuul
 
 
-9)K8s 배포
+9) K8s 배포
 - Secret 생성
 	-> CMD 창 실행
 $ kubectl create secret docker-registry edu-msa-secret --docker-server=${IMAGE_REGISTRY_URL}:5001 --docker-username=admin --docker-password=admin 
@@ -612,7 +612,7 @@ $ kubectl get pods
 	-> ${DIRECTORY_NAME}: 도커 이미지 태그시 입력한 파일 경로 입력
 	-> ${IMAGE_NAME}: 도커 이미지 태그시 입력한 이미지 이름 입력
 	-> ${EDU_MSA_USER}: "304xx"로 변수 수정(xx에 할당 받은 번호 입력)후 저장		
-================== edu-msa-ui.yaml ==================
+================== edu-msa-user.yaml ==================
         image: ${IMAGE_REGISTRY_URL}:5001/${DIRECTORY_NAME}/${IMAGE_NAME}:latest
         imagePullPolicy: Always
         ports:
