@@ -360,7 +360,7 @@ redis.password=password
 	
 - war 파일 생성
 	-> "edu-msa-zuul 프로젝트 선택" > "Run As" > "Maven build" 선택
-	-> Edit Configuration 창에서 Golas에 "clean install" 입력 후 "Run" 실행
+	-> Edit Configuration 창에서 Goals에 "clean install" 입력 후 "Run" 실행
 	-> "edu-msa-zuul/target" 위치에 edu-msa-zuul-1.0.0.war 파일 확인	
 
 
