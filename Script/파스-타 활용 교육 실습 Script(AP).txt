@@ -93,7 +93,8 @@ $ cf ssh –L {LocalPort}:{DB_IP}:{DB_PORT} edu-msa-board-trainer
 - "Test Connetion” 버튼 클릭하여 정상적으로 Mariadb와 연결되는지 확인 후 "완료”
 - 윈도우 > 설정 클릭
 - 일반 > 작업공간 > 텍스트 파일 인코딩 > "기타"에서 "UTF-8” 선택
-- 샘플 SQL 다운로드 링크 : https://nextcloud.paas-ta.org/index.php/s/KTQ9GTSN3FtcJBW/download
+- 샘플 SQL 다운로드 링크 : https://github.com/PaaS-TA/edu-msa-file/archive/refs/heads/master.zip
+	-> 해당 파일에 Script, SQL, Docker, K8s 파일 존재.
 - "EDU_MAS_{API명}.sql” 열고 "우클릭 > 실행 > SQL 스크립트 실행" 클릭하여 샘플 데이터 입력
 
 
