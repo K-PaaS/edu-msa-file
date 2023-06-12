@@ -8,7 +8,7 @@ CREATE TABLE `TB_COMMENT` (
   `create_dt` datetime NOT NULL,
   `update_dt` datetime NOT NULL,
   PRIMARY KEY (`comment_seq`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 ;
 INSERT INTO `TB_COMMENT`
 (comment_seq, board_seq, comment, write_user_id, write_user_name, use_yn, create_dt, update_dt)

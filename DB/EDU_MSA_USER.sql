@@ -8,7 +8,7 @@ CREATE TABLE `TB_USER` (
   `update_dt` datetime NOT NULL,
   PRIMARY KEY (`user_seq`),
   UNIQUE KEY `id_key` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 ;
 
 INSERT INTO `TB_USER`
