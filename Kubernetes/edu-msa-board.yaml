@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: board-msa
-        image: ${IMAGE_REGISTRY_URL}:5001/${DIRECTORY_NAME}/${IMAGE_NAME}:latest
+        image: ${DOCKER_HUB_ID}/edu-msa-board:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 28082         
