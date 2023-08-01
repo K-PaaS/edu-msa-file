@@ -19,9 +19,7 @@ spec:
         image: ${DOCKER_HUB_ID}/edu-msa-user:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 28084      
-      imagePullSecrets:
-         - name: edu-msa-secret        
+        - containerPort: 28084            
 ---
 apiVersion: v1
 kind: Service

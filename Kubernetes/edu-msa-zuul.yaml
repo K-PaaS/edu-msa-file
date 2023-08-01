@@ -26,9 +26,7 @@ spec:
         - name: COMMENT_MSA_URL
           value: "edu-msa-comment.${NAMESPACE}.svc.cluster.local:28083"
         - name: USER_MSA_URL
-          value: "edu-msa-user.${NAMESPACE}.svc.cluster.local:28084"          
-      imagePullSecrets:
-         - name: edu-msa-secret       
+          value: "edu-msa-user.${NAMESPACE}.svc.cluster.local:28084"                
 ---
 apiVersion: v1
 kind: Service
