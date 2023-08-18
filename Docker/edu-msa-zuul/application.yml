@@ -52,5 +52,5 @@ comments:
 server:
   port: 28081
     
-ApiMasterKey: 'MSA-K-PaaS'
-ApiKeySalt: 'K-PaaS'
+ApiMasterKey: 'MSA-PaaS-TA'
+ApiKeySalt: 'PaaS-TA'
