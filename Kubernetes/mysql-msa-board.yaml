@@ -13,7 +13,11 @@ spec:
       labels:
         app: mysql-board
       annotations:
+<<<<<<< HEAD
         sidecar.istio.io/inject: "false"             
+=======
+        sidecar.istio.io/inject: "false"  # 사이드카 인젝션 비활성화          
+>>>>>>> 442861df274809019076682da12a9d0d01c50432
     spec:
       containers:
       - image: mysql:5.6
@@ -37,6 +41,10 @@ spec:
   - port: 3306
     protocol: TCP
     targetPort: 3306
+<<<<<<< HEAD
     nodePort: ${MYSQL_MSA_BOARD}      
+=======
+    nodePort: 30501
+>>>>>>> 442861df274809019076682da12a9d0d01c50432
   selector:
     app: mysql-board

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ui-msa
-        image: ${DOCKER_HUB_ID}/edu-msa-ui:latest
+        image: nayoungjang/edu-msa-ui:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 28080           
@@ -29,7 +29,11 @@ metadata:
     app: ui-msa  
 spec:
   ports:
+<<<<<<< HEAD
   - nodePort: ${EDU_MSA_UI}    
+=======
+  - nodePort: 30001
+>>>>>>> 442861df274809019076682da12a9d0d01c50432
     port: 28080
     protocol: TCP
     targetPort: 28080
