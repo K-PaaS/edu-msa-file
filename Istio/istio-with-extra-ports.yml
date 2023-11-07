@@ -1,0 +1,40 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  name: istio-with-extra-ports
+spec:
+  profile: default
+  components:
+    ingressGateways:
+      - namespace: istio-system
+        name: istio-ingressgateway
+        enabled: true
+        k8s:
+          service:
+            ports:
+              - port: 15021
+                targetPort: 15021
+                name: status-port
+                protocol: TCP
+              - port: 80
+                targetPort: 8080
+                name: http2
+                protocol: TCP
+              - port: 443
+                targetPort: 8443
+                name: https
+                protocol: TCP
+              - port: 15012
+                targetPort: 15012
+                name: tcp-istiod
+                protocol: TCP
+              - port: 15443
+                targetPort: 15443
+                name: tls
+                protocol: TCP
+              - port: 28080
+                targetPort: 28080
+                nodePort: 30080
+                name: msa-app
+                protocol: TCP
+            type: NodePort

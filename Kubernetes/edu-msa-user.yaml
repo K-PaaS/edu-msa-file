@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user-msa
-        image: ${DOCKER_HUB_ID}/edu-msa-user:latest
+        image: nayoungjang/edu-msa-user:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 28084            
@@ -29,7 +29,7 @@ metadata:
     app: user-msa  
 spec:
   ports:
-  - nodePort: ${EDU_MSA_USER}
+  - nodePort: 30401
     port: 28084
     protocol: TCP
     targetPort: 28084
