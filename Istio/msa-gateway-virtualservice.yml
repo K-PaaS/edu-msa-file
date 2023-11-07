@@ -1,0 +1,50 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: msa-gateway
+  namespace: default
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 28080
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: msa-virtualservice
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - default/msa-gateway
+  http:
+  - match:
+    - uri:
+        prefix: "/user"
+    route:
+    - destination:
+        host: "edu-msa-user.default.svc.cluster.local"
+        port:
+          number: 28084
+  - match:
+    - uri:
+        prefix: "/board"
+    route:
+    - destination:
+        host: "edu-msa-board.default.svc.cluster.local"
+        port:
+          number: 28082
+  - match:
+    - uri:
+        prefix: "/comment"
+    route:
+    - destination:
+        host: "edu-msa-comment.default.svc.cluster.local"
+        port:
+          number: 28083

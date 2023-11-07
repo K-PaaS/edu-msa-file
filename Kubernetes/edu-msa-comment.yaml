@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: comment-msa
-        image: ${DOCKER_HUB_ID}/edu-msa-comment:latest
+        image: ${DOCKER_HUB_ID}/edu-msa-comment:latest        
         imagePullPolicy: Always
         ports:
         - containerPort: 28083             
@@ -26,14 +26,13 @@ kind: Service
 metadata:
   name: edu-msa-comment
   labels:
-    app: comment-msa  
+    app: comment-msa
 spec:
   ports:
-  - nodePort: ${EDU_MSA_COMMENT}
-    port: 28083
+  - port: 28083
     protocol: TCP
     targetPort: 28083
   selector:
     app: comment-msa
-  type: NodePort
+  type: ClusterIP
 

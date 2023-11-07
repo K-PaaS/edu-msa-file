@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: board-msa
-        image: ${DOCKER_HUB_ID}/edu-msa-board:latest
+        image: ${DOCKER_HUB_ID}/edu-msa-board:latest        
         imagePullPolicy: Always
         ports:
         - containerPort: 28082              
@@ -26,14 +26,13 @@ kind: Service
 metadata:
   name: edu-msa-board
   labels:
-    app: board-msa  
+    app: board-msa
 spec:
   ports:
-  - nodePort: ${EDU_MSA_BOARD}
-    port: 28082
+  - port: 28082
     protocol: TCP
     targetPort: 28082
   selector:
     app: board-msa
-  type: NodePort
+  type: ClusterIP
 

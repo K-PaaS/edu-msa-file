@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user-msa
-        image: ${DOCKER_HUB_ID}/edu-msa-user:latest
+        image: ${DOCKER_HUB_ID}/edu-msa-user:latest        
         imagePullPolicy: Always
         ports:
         - containerPort: 28084            
@@ -26,13 +26,13 @@ kind: Service
 metadata:
   name: edu-msa-user
   labels:
-    app: user-msa  
+    app: user-msa
 spec:
   ports:
-  - nodePort: ${EDU_MSA_USER}
-    port: 28084
+  - port: 28084
     protocol: TCP
     targetPort: 28084
   selector:
     app: user-msa
-  type: NodePort
+  type: ClusterIP
+
