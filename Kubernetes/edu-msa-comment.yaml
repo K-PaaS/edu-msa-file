@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: comment-msa
-        image: ${DOCKER_HUB_ID}/edu-msa-comment:latest
+        image: nayoungjang/edu-msa-comment:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 28083             
@@ -29,7 +29,7 @@ metadata:
     app: comment-msa  
 spec:
   ports:
-  - nodePort: ${EDU_MSA_COMMENT}
+  - nodePort: 30301
     port: 28083
     protocol: TCP
     targetPort: 28083
