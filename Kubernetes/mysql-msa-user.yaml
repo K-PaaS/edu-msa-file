@@ -14,7 +14,7 @@ spec:
         app: mysql-user
     spec:
       containers:
-      - image: mysql:5.6
+      - image: docker.io/mysql:5.6
         name: mysql-user
         env:          
         - name: MYSQL_ROOT_PASSWORD

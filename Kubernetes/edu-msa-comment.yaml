@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: comment-msa
-        image: ${DOCKER_HUB_ID}/edu-msa-comment:latest
+        image: docker.io/${DOCKER_HUB_ID}/edu-msa-comment:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 28083             

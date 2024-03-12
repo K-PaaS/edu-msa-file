@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: zuul-msa
-        image: ${DOCKER_HUB_ID}/edu-msa-zuul:latest
+        image: docker.io/${DOCKER_HUB_ID}/edu-msa-zuul:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 28081      

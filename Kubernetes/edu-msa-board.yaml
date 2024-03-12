@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: board-msa
-        image: ${DOCKER_HUB_ID}/edu-msa-board:latest
+        image: docker.io/${DOCKER_HUB_ID}/edu-msa-board:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 28082              

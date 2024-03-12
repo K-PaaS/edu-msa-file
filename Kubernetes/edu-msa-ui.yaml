@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ui-msa
-        image: ${DOCKER_HUB_ID}/edu-msa-ui:latest
+        image: docker.io/${DOCKER_HUB_ID}/edu-msa-ui:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 28080           

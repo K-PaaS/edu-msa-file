@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: redis
-        image: redis:latest
+        image: docker.io/redis:latest
         command:
           - redis-server
           - "/redis-master/redis.conf"
