@@ -51,7 +51,6 @@ sudo make install
 sudo echo "ubuntu ALL=(ALL) NOPASSWD: /usr/local/bin/podman" >> /etc/sudoers
 sudo sed -n '/ubuntu/p' /etc/sudoers
 podman --version
-sudo rm -rf ~/.local/share/containers/
 
 # crun upgrade
 CRUN_VER='1.11.2'
