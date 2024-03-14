@@ -1,4 +1,9 @@
 #!/bin/sh
+GREEN="\e[0;92m";
+BOLD_YELLOW="\e[1;33m";
+RESET="\e[0m";
+
+echo -e "${GREEN}*** Podman installation start ***${RESET}"
 # Build and Run Dependencies
 sudo apt-get update
 sudo apt-get upgrade -y
@@ -56,3 +61,4 @@ chmod +x "${HOME}/.local/bin/crun"
 sudo mv /usr/bin/crun /usr/bin/crun.ori
 sudo cp ${HOME}/.local/bin/crun /usr/bin/crun
 crun --version
+echo -e "${GREEN}*** Podman installation completed successfully ***${RESET}"
