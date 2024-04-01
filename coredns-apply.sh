@@ -35,4 +35,4 @@ data:
 EOF
 
 # coredns deployment 재시작
-kubectl rollout restart deployment coredns  -n kube-system
+kubectl rollout restart deployment coredns -n kube-system
